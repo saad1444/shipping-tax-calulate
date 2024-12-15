@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Total Calculator</title>
+
+    <style>
+        .karachi:hover{
+            background-color: aqua;
+            color: black;
+        }
+
+        body{
+            background-color: black;
+            margin-left: 30px;
+            margin-top: 30px;
+        }
+
+        h1{
+            color: aliceblue;
+        }
+        h1:hover{
+            color: aqua;
+        }
+    </style>
+    
+    <script>
+        function calculate() {
+            var merchTot = parseFloat(document.getElementById('merchTot').value);
+            var orderTot = merchTot >= 100 ? merchTot : merchTot < 50.01 ? merchTot + 5 : merchTot + 5 + (0.03 * (merchTot - 50));
+            var tax = merchTot * 0.08;
+
+            alert(`Merchandise: $${merchTot.toFixed(2)}\nShipping: $${(orderTot - merchTot).toFixed(2)}\nTax: $${tax.toFixed(2)}\nTotal: $${orderTot.toFixed(2)}`);
+        }
+    </script>
+</head>
+<body>
+    <h1>Order Total Calculator</h1>
+    <input class="karachi" type="number" id="merchTot" placeholder="Enter amount">
+    <button class="karachi" onclick="calculate()">Calculate Total</button>
+</body>
+</html>
